@@ -1,22 +1,43 @@
-echo "How many files are there in the current directory? Please enter a guess number:"
+echo "How many files including hidden files are there in the current directory? Please enter a guess number:"
+
+numberfile=$(ls -1a | wc -l)
+checkint=[^[0-9]+$]
 read number
 
-function numberdir {
-echo $(ls -1 |wc -l)
+function checkinteger {
+check=0
+while ! [[ $number =~ ^[0-9]+$ ]]
+do
+	echo "Please enter a integer number:"
+	read number
+	let check=1
+done
 }
 
-while [[ $number -ne $(numberdir) ]]
-do
- if [[ $number -gt $(numberdir) ]]
- then	
+function guessing {
+if [[ $number -gt $numberfile ]]
+then
 	echo "The number is too high. Please enter a lower number:"
-	read number	 
- fi 
- if [[ $number -lt $(numberdir) ]]
- then
+	read number
+	checkinteger
+fi
+if [[ $number -lt $numberfile ]]
+then
 	echo "The number is too low. Please enter a higher number:"
 	read number
- fi 
+	checkinteger
+fi
+}
+
+checkinteger
+
+while [[ $number -ne $numberfile ]]
+do 
+	guessing
 done
 
-echo "Congratulations!You entered the right number!"
+
+if [[ $number -eq $numberfile ]]
+then
+	echo "Congratulations!You entered the right number!"
+fi
