@@ -1,4 +1,4 @@
 # guessing-game-assign
-Tue May 19 17:18:17 CEST 2020
-- The number of lines of code in guessinggame.sh:
-36
+Tue May 19 17:42:25 CEST 2020
+- The number of lines of **code** in guessinggame.sh:
+35

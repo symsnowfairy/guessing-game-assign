@@ -1,7 +1,7 @@
 echo "How many files including hidden files are there in the current directory? Please enter a guess number:"
 
 numberfile=$(ls -1a | wc -l)
-checkint=[^[0-9]+$]
+
 read number
 
 function checkinteger {
