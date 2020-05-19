@@ -1,6 +1,6 @@
 echo "How many files including hidden files are there in the current directory? Please enter a guess number:"
 
-numberfile=$(ls -1a | wc -l)
+numberfile=$(ls -1a | wc -l)-2
 
 read number
 
